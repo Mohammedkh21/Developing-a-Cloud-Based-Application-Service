@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const admin = require("firebase-admin");
-const path = require('path');
+const path = require("path");
 
 const serviceAccount = require("./healthcareapp-96212-firebase-adminsdk-if7qn-47d4b714fa.json");
 admin.initializeApp({
@@ -28,9 +28,9 @@ app.use("/files", fileRoutes);
 app.use("/activities", activityRoutes);
 
 // just to run the frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+app.use(express.static(path.join(__dirname, "../frontend")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 //
 app.get("/", (req, res) => res.send("Healthcare App API is running!"));
