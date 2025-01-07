@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const admin = require("firebase-admin");
+const path = require('path');
 
 const serviceAccount = require("./healthcareapp-96212-firebase-adminsdk-if7qn-47d4b714fa.json");
 admin.initializeApp({
