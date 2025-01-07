@@ -26,6 +26,12 @@ app.use("/appointments", appointmentRoutes);
 app.use("/files", fileRoutes);
 app.use("/activities", activityRoutes);
 
+// just to run the frontend
+app.use(express.static(path.join(__dirname, '../frontend')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+//
 app.get("/", (req, res) => res.send("Healthcare App API is running!"));
 
 const PORT = process.env.PORT || 3000;
