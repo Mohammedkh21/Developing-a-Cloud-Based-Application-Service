@@ -1,3 +1,4 @@
+const backendBaseUrl = "https://developing-a-cloud-based-application.onrender.com"; 
 
 document.getElementById("addDoctorForm").addEventListener("submit", async function(e) {
   e.preventDefault();
@@ -6,7 +7,7 @@ document.getElementById("addDoctorForm").addEventListener("submit", async functi
   const email = document.getElementById("doctorEmail").value;
 
   try {
-    const response = await fetch("http://localhost:3000/doctors/add", {
+    const response = await fetch(`${backendBaseUrl}/doctors/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, specialty, email })
@@ -27,7 +28,7 @@ document.getElementById("addAppointmentForm").addEventListener("submit", async f
   const time = document.getElementById("appointmentTime").value;
 
   try {
-    const response = await fetch("http://localhost:3000/appointments/add", {
+    const response = await fetch(`${backendBaseUrl}/appointments/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ patientId, doctorId, date, time })
@@ -47,7 +48,7 @@ document.getElementById("uploadFileForm").addEventListener("submit", async funct
   formData.append("file", fileInput.files[0]);
 
   try {
-    const response = await fetch("http://localhost:3000/files/upload", {
+    const response = await fetch(`${backendBaseUrl}/files/upload`, {
       method: "POST",
       body: formData
     });
@@ -66,7 +67,7 @@ document.getElementById("trackActivityForm").addEventListener("submit", async fu
   const details = document.getElementById("activityDetails").value;
 
   try {
-    const response = await fetch("http://localhost:3000/activities/track", {
+    const response = await fetch(`${backendBaseUrl}/activities/track`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId, activityType, details })
