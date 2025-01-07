@@ -5,7 +5,7 @@ const cors = require("cors");
 const admin = require("firebase-admin");
 const path = require("path");
 
-const serviceAccount = require("./healthcareapp-96212-firebase-adminsdk-if7qn-47d4b714fa.json");
+const serviceAccount = require("./healthcareapp-96212-firebase-adminsdk-if7qn-d0df89aa02.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
